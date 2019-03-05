@@ -5,9 +5,9 @@
 
 CXX = g++
 VPATH = src
-SFML_FLAGS =  -L /Users/Hipster/SFML/lib -lsfml-graphics -lsfml-window -lsfml-audio -lsfml-network -lsfml-system 
+SFML_FLAGS = -DSFML_STATIC -I /Users/Hipster/SFML/include -L /Users/Hipster/SFML/lib -lsfml-graphics -lsfml-window -lsfml-audio -lsfml-network -lsfml-system 
 # MIDI_FLAGS =  -ljack
-MIDI_LAGS =  -L -framework CoreMIDI -framework CoreAudio -framework CoreFoundation
+# MIDI_LAGS =  -L -framework CoreMIDI -framework CoreAudio -framework CoreFoundation
 # CPPFLAGS =  -L /Users/Hipster/SFML/lib -lsfml-graphics -lsfml-window -lsfml-audio -lsfml-network -lsfml-system -framework CoreMIDI -framework CoreAudio -framework CoreFoundation
 # CXXFLAGS = -Wreturn-stack-address -Wall -Werror -Wextra -pedantic -std=c++17 -g -fsanitize=address -D__UNIX_JACK__
 CXXFLAGS = -Wreturn-stack-address -Wall  -D__MACOSX_CORE__ -std=c++11 
@@ -18,7 +18,7 @@ CXXFLAGS = -Wreturn-stack-address -Wall  -D__MACOSX_CORE__ -std=c++11
 # EXEC = MakeFile
 
 PianoGenerator: main.cpp 
-	g++ $(CXXFLAGS) $^ RtMidi.cpp $(MIDI_FLAGS) $(SFML_FLAGS) 
+	g++ $(CXXFLAGS) $^ RtMidi.cpp RtMidi.h $(MIDI_FLAGS) $(SFML_FLAGS) 
 
 # main.o: main.cpp MIDI.o 
 # g++ -c 

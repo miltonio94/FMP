@@ -1,6 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <sstream>
-#include "RtMidi.h"
+#include "/RtMidi.h"
 #include <signal.h>
 #include <cstdlib>
 #include <iostream>
